@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CrudRazorCore.Models.Asesor>
+
+@{
+    ViewData["Title"] = "Asesores";
+}
+
+<h1>Asesores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Puesto</th>
+            <th>Teléfono</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.Id_Asesor</td>
+            <td>@item.Nombre_Asesor</td>
+            <td>@item.Correo_Asesor</td>
+            <td>@item.Puesto</td>
+            <td>@item.Telefono_Asesor</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id_Asesor">Detalles</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id_Asesor">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_Asesor">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

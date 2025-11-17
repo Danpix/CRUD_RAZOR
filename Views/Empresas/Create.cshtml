@@ -1,0 +1,41 @@
+﻿@model CrudRazorCore.Models.Empresa
+
+<h1>Registrar Empresa</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="RFC_Empresa"></label>
+        <input asp-for="RFC_Empresa" class="form-control" />
+        <span asp-validation-for="RFC_Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nombre_Empresa"></label>
+        <input asp-for="Nombre_Empresa" class="form-control" />
+        <span asp-validation-for="Nombre_Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Asesor</label>
+        <select asp-for="Clave_Asesor" asp-items="ViewBag.Asesores" class="form-select">
+            <option value="">-- Selecciona un asesor --</option>
+        </select>
+        <span asp-validation-for="Clave_Asesor" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Direccion_Empresa"></label>
+        <input asp-for="Direccion_Empresa" class="form-control" />
+        <span asp-validation-for="Direccion_Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fecha_Inscripcion"></label>
+        <input asp-for="Fecha_Inscripcion" type="date" class="form-control" />
+        <span asp-validation-for="Fecha_Inscripcion" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

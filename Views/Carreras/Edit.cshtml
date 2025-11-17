@@ -1,0 +1,17 @@
+﻿@model CrudRazorCore.Models.Carrera
+
+<h1>Editar Carrera</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Clave_Carrera" />
+
+    <div class="form-group">
+        <label asp-for="Nombre_Carrera"></label>
+        <input asp-for="Nombre_Carrera" class="form-control" />
+        <span asp-validation-for="Nombre_Carrera" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

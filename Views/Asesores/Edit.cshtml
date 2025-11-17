@@ -1,0 +1,35 @@
+﻿@model CrudRazorCore.Models.Asesor
+
+<h1>Editar Asesor</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id_Asesor" />
+
+    <div class="form-group">
+        <label asp-for="Nombre_Asesor"></label>
+        <input asp-for="Nombre_Asesor" class="form-control" />
+        <span asp-validation-for="Nombre_Asesor" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Puesto"></label>
+        <input asp-for="Puesto" class="form-control" />
+        <span asp-validation-for="Puesto" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Correo_Asesor"></label>
+        <input asp-for="Correo_Asesor" class="form-control" />
+        <span asp-validation-for="Correo_Asesor" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Telefono_Asesor"></label>
+        <input asp-for="Telefono_Asesor" class="form-control" />
+        <span asp-validation-for="Telefono_Asesor" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

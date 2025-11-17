@@ -1,0 +1,40 @@
+﻿@model CrudRazorCore.Models.Asignacion
+
+@{
+    ViewData["Title"] = "Editar Asignación";
+}
+
+<h1>Editar Asignación</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id_Asignacion" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label class="form-label">Alumno</label>
+        <select asp-for="Matricula_Alumno" asp-items="ViewBag.Alumnos" class="form-select">
+            <option value="">-- Selecciona un alumno --</option>
+        </select>
+        <span asp-validation-for="Matricula_Alumno" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Empresa</label>
+        <select asp-for="RFC_Empresa" asp-items="ViewBag.Empresas" class="form-select">
+            <option value="">-- Selecciona una empresa --</option>
+        </select>
+        <span asp-validation-for="RFC_Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Asesor</label>
+        <select asp-for="Id_Asesor" asp-items="ViewBag.Asesores" class="form-select">
+            <option value="">-- Selecciona un asesor --</option>
+        </select>
+        <span asp-validation-for="Id_Asesor" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

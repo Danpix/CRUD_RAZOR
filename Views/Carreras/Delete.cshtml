@@ -1,0 +1,19 @@
+﻿@model CrudRazorCore.Models.Carrera
+
+<h1>Eliminar Carrera</h1>
+
+<h3>¿Seguro que deseas eliminar este registro?</h3>
+
+<dl class="row">
+    <dt class="col-sm-2">Clave</dt>
+    <dd class="col-sm-10">@Model.Clave_Carrera</dd>
+
+    <dt class="col-sm-2">Nombre</dt>
+    <dd class="col-sm-10">@Model.Nombre_Carrera</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Clave_Carrera" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

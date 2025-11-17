@@ -1,0 +1,47 @@
+﻿@model CrudRazorCore.Models.Empresa
+
+@{
+    ViewData["Title"] = "Detalles de Empresa";
+}
+
+<h1>Detalles de la Empresa</h1>
+
+<div>
+    <dl class="row">
+
+        <dt class="col-sm-3">RFC</dt>
+        <dd class="col-sm-9">@Model.RFC_Empresa</dd>
+
+        <dt class="col-sm-3">Nombre de la Empresa</dt>
+        <dd class="col-sm-9">@Model.Nombre_Empresa</dd>
+
+        <dt class="col-sm-3">Asesor Asignado</dt>
+        <dd class="col-sm-9">
+            @Model.AsesorNav?.Nombre_Asesor
+        </dd>
+
+        <dt class="col-sm-3">Correo del Asesor</dt>
+        <dd class="col-sm-9">
+            @Model.AsesorNav?.Correo_Asesor
+        </dd>
+
+        <dt class="col-sm-3">Teléfono del Asesor</dt>
+        <dd class="col-sm-9">
+            @Model.AsesorNav?.Telefono_Asesor
+        </dd>
+
+        <dt class="col-sm-3">Dirección</dt>
+        <dd class="col-sm-9">@Model.Direccion_Empresa</dd>
+
+        <dt class="col-sm-3">Fecha de inscripción</dt>
+        <dd class="col-sm-9">
+            @Model.Fecha_Inscripcion?.ToString("dd/MM/yyyy")
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RFC_Empresa" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

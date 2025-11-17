@@ -1,0 +1,114 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iniciar Sesión</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            width: 420px;
+            padding: 30px;
+            background: #111;
+            border-radius: 12px;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, .4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #00ff00;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        label {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            background-color: #000;
+            border: 1px solid #00aa00;
+            color: #e5e5e5;
+            border-radius: 5px;
+        }
+
+        .form-control:focus {
+            border-color: #00ff00;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0,255,0,0.4);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #00aa00;
+            border: none;
+            padding: 12px;
+            color: #000;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: .2s;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #00ff00;
+            transform: scale(1.02);
+        }
+
+        .error-text {
+            color: #ff4444;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h2>Iniciar Sesión</h2>
+
+        <form asp-action="Login" method="post">
+
+            <label for="correo">Correo</label>
+            <input type="text" name="correo" id="correo" class="form-control" />
+
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control" />
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="error-text">@ViewBag.Error</div>
+            }
+
+            <button type="submit" class="btn-submit">Ingresar</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

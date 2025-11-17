@@ -11,9 +11,13 @@ namespace CrudRazorCore.Models
 
         [Required]
         [StringLength(50)]
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
+        // FK numérica a Carrera (Clave_Carrera)
         public int Carrera { get; set; }
+
+        [ForeignKey("Carrera")]
+        public Carrera? CarreraNav { get; set; }   // 👈 nav para usar Nombre_Carrera
 
         [StringLength(100)]
         public string? Correo { get; set; }

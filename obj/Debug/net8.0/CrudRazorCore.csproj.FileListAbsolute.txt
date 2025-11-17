@@ -32,6 +32,8 @@ C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\ne
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -236,6 +238,7 @@ C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\ne
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\CrudRazorCore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\CrudRazorCore.RazorAssemblyInfo.cache
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\CrudRazorCore.RazorAssemblyInfo.cs
+C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\CrudRazorCore.sourcelink.json
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -253,5 +256,3 @@ C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\ne
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\CrudRazorCore.pdb
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\CrudRazorCore.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\obj\Debug\net8.0\ref\CrudRazorCore.dll
-C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Usuario\Desktop\Dual\Razor,ASP\CrudRazorCore\CrudRazorCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

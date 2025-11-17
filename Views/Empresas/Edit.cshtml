@@ -1,0 +1,45 @@
+﻿@model CrudRazorCore.Models.Empresa
+
+@{
+    ViewData["Title"] = "Editar Empresa";
+}
+
+<h1>Editar Empresa</h1>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="RFC_Empresa" class="form-label"></label>
+        <input asp-for="RFC_Empresa" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre_Empresa" class="form-label"></label>
+        <input asp-for="Nombre_Empresa" class="form-control" />
+        <span asp-validation-for="Nombre_Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Asesor</label>
+        <select asp-for="Clave_Asesor" asp-items="ViewBag.Asesores" class="form-select">
+            <option value="">-- Selecciona un asesor --</option>
+        </select>
+        <span asp-validation-for="Clave_Asesor" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Direccion_Empresa" class="form-label"></label>
+        <input asp-for="Direccion_Empresa" class="form-control" />
+        <span asp-validation-for="Direccion_Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Fecha_Inscripcion" class="form-label"></label>
+        <input asp-for="Fecha_Inscripcion" type="date" class="form-control" />
+        <span asp-validation-for="Fecha_Inscripcion" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

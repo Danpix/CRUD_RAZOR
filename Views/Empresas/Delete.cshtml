@@ -1,0 +1,36 @@
+﻿@model CrudRazorCore.Models.Empresa
+
+@{
+    ViewData["Title"] = "Eliminar Empresa";
+}
+
+<h1>Eliminar Empresa</h1>
+
+<h3>¿Seguro que deseas eliminar esta empresa?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">RFC</dt>
+        <dd class="col-sm-9">@Model.RFC_Empresa</dd>
+
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre_Empresa</dd>
+
+        <dt class="col-sm-3">Asesor</dt>
+        <dd class="col-sm-9">@Model.AsesorNav?.Nombre_Asesor</dd>
+
+        <dt class="col-sm-3">Dirección</dt>
+        <dd class="col-sm-9">@Model.Direccion_Empresa</dd>
+
+        <dt class="col-sm-3">Fecha inscripción</dt>
+        <dd class="col-sm-9">
+            @Model.Fecha_Inscripcion?.ToString("dd/MM/yyyy")
+        </dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="RFC_Empresa" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

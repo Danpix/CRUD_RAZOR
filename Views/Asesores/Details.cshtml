@@ -1,0 +1,23 @@
+﻿@model CrudRazorCore.Models.Asesor
+
+<h1>Detalles de Asesor</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Id</dt>
+    <dd class="col-sm-10">@Model.Id_Asesor</dd>
+
+    <dt class="col-sm-2">Nombre</dt>
+    <dd class="col-sm-10">@Model.Nombre_Asesor</dd>
+
+    <dt class="col-sm-2">Correo</dt>
+    <dd class="col-sm-10">@Model.Correo_Asesor</dd>
+
+    <dt class="col-sm-2">Puesto</dt>
+    <dd class="col-sm-10">@Model.Puesto</dd>
+
+    <dt class="col-sm-2">Teléfono</dt>
+    <dd class="col-sm-10">@Model.Telefono_Asesor</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id_Asesor" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CrudRazorCore.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CrudRazorCore.Controllers
 {
@@ -18,7 +19,10 @@ namespace CrudRazorCore.Controllers
         // GET: Alumnos
         public async Task<IActionResult> Index()
         {
-            var alumnos = await _context.Alumnos.ToListAsync();
+            var alumnos = await _context.Alumnos
+        .Include(a => a.CarreraNav)   // 👈 trae el nombre de la carrera
+        .ToListAsync();
+
             return View(alumnos);
         }
 
@@ -38,10 +42,15 @@ namespace CrudRazorCore.Controllers
         // GET: Alumnos/Create
         public IActionResult Create()
         {
+            ViewBag.Carreras = new SelectList(
+                _context.Carreras.ToList(),
+                "Clave_Carrera",      // valor que se guarda
+                "Nombre_Carrera"      // texto que se muestra
+            );
+
             return View();
         }
 
-        // POST: Alumnos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Alumno alumno)
@@ -52,8 +61,17 @@ namespace CrudRazorCore.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Carreras = new SelectList(
+                _context.Carreras.ToList(),
+                "Clave_Carrera",
+                "Nombre_Carrera",
+                alumno.Carrera                // 👈 mantiene seleccionado si hay error
+            );
+
             return View(alumno);
         }
+
 
         // GET: Alumnos/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -63,8 +81,16 @@ namespace CrudRazorCore.Controllers
             var alumno = await _context.Alumnos.FindAsync(id);
             if (alumno == null) return NotFound();
 
+            ViewBag.Carreras = new SelectList(
+                _context.Carreras.ToList(),
+                "Clave_Carrera",
+                "Nombre_Carrera",
+                alumno.Carrera
+            );
+
             return View(alumno);
         }
+
 
         // POST: Alumnos/Edit/5
         [HttpPost]
@@ -82,15 +108,24 @@ namespace CrudRazorCore.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AlumnoExists(alumno.Matricula))
+                    if (!_context.Alumnos.Any(e => e.Matricula == id))
                         return NotFound();
                     else
                         throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Carreras = new SelectList(
+                _context.Carreras.ToList(),
+                "Clave_Carrera",
+                "Nombre_Carrera",
+                alumno.Carrera
+            );
+
             return View(alumno);
         }
+
 
         // GET: Alumnos/Delete/5
         public async Task<IActionResult> Delete(int? id)

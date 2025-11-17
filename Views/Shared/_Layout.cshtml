@@ -3,30 +3,276 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CrudRazorCore</title>
+    <title>@ViewData["Title"] - SISTEMA INTEGRAL DE MODELO DUAL</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CrudRazorCore.styles.css" asp-append-version="true" />
+
+    <style>
+        body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+}
+
+main {
+    min-height: calc(100vh - 120px); /* Ajusta el espacio entre navbar y footer */
+}
+
+.container {
+    max-width: 100% !important; /* Quita el límite de ancho */
+    width: 100% !important;
+}
+
+        body {
+            background-color: #0a0a0a; /* negro */
+            color: #e5e5e5;
+        }
+
+        .navbar {
+            background-color: #111 !important;
+            border-bottom: 2px solid #00ff00;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #00ff00 !important;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #55ff55 !important;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+        }
+
+        .container, main {
+            color: #e5e5e5;
+        }
+
+        footer {
+            background-color: #111;
+            border-top: 2px solid #00ff00;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #55ff55;
+        }
+
+        /* Botones globales verde + negro */
+        .btn-primary {
+            background-color: #00aa00 !important;
+            border-color: #00aa00 !important;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #00ff00 !important;
+            border-color: #00ff00 !important;
+            color: #000;
+        }
+
+        .btn-danger {
+            background-color: #990000 !important;
+            border-color: #990000 !important;
+        }
+        
+        .table {
+            color: #e5e5e5;
+        }
+
+        .table thead {
+            background-color: #00aa00;
+            color: black;
+        }
+
+        .table tbody tr {
+            background-color: #111;
+        }
+
+        .table tbody tr:hover {
+            background-color: #222;
+        }
+        /* FORZAR TEXTO CLARO EN TABLAS */
+.table {
+    color: #e5e5e5 !important;
+}
+
+.table td, 
+.table th {
+    color: #e5e5e5 !important;
+}
+
+/* ENCABEZADO VERDE */
+.table thead {
+    background-color: #00aa00 !important;
+}
+
+.table thead th {
+    color: #000 !important;
+}
+
+/* FILAS OSCURAS */
+.table tbody tr {
+    background-color: #111 !important;
+}
+
+.table tbody tr:hover {
+    background-color: #222 !important;
+}
+
+/* BOTONES ESTILO VERDE/NEGRO */
+.btn-info {
+    background-color: #0066ff !important;
+    border-color: #0066ff !important;
+    color: #fff !important;
+}
+
+.btn-warning {
+    background-color: #ffaa00 !important;
+    border-color: #ffaa00 !important;
+    color: #000 !important;
+}
+
+.btn-danger {
+    background-color: #cc0000 !important;
+    border-color: #cc0000 !important;
+    color: #fff !important;
+}
+
+/* BOTÓN PRIMARIO EN VERDE */
+.btn-primary {
+    background-color: #00aa00 !important;
+    border-color: #00aa00 !important;
+    color: #000 !important;
+}
+
+.btn-primary:hover {
+    background-color: #00ff00 !important;
+    border-color: #00ff00 !important;
+}
+/* BOTONES PERSONALIZADOS VERDE/NEGRO */
+.btn-crear, .btn-detalles, .btn-editar, .btn-eliminar {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+/* Crear (verde intenso) */
+.btn-crear {
+    background-color: #00aa00;
+    color: #000;
+    border: 1px solid #00ff00;
+}
+
+.btn-crear:hover {
+    background-color: #00ff00;
+    transform: scale(1.05);
+}
+
+/* Detalles (azul eléctrico) */
+.btn-detalles {
+    background-color: #0066ff;
+    color: #fff;
+    border: 1px solid #3399ff;
+}
+
+.btn-detalles:hover {
+    background-color: #3399ff;
+    transform: scale(1.05);
+}
+
+/* Editar (amarillo neon) */
+.btn-editar {
+    background-color: #ffcc00;
+    color: #000;
+    border: 1px solid #ffee55;
+}
+
+.btn-editar:hover {
+    background-color: #ffee55;
+    transform: scale(1.05);
+}
+
+/* Eliminar (rojo neon) */
+.btn-eliminar {
+    background-color: #cc0000;
+    color: #fff;
+    border: 1px solid #ff4444;
+}
+
+.btn-eliminar:hover {
+    background-color: #ff4444;
+    transform: scale(1.05);
+}
+.btn-crear:hover,
+.btn-detalles:hover,
+.btn-editar:hover,
+.btn-eliminar:hover {
+    box-shadow: 0 0 10px currentColor;
+}
+
+    </style>
+
 </head>
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CrudRazorCore</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    SISTEMA DUAL
+                </a>
+
+                <button class="navbar-toggler text-success" type="button" 
+                        data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="filter: invert(58%) sepia(93%) saturate(1082%) hue-rotate(66deg) brightness(119%) contrast(119%);"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-controller="Alumnos" asp-action="Index">Alumnos</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Alumnos" asp-action="Index">Alumnos</a>
+                            <a class="nav-link" asp-controller="Carreras" asp-action="Index">Carreras</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Asesores" asp-action="Index">Asesores</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Empresas" asp-action="Index">Empresas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Asignaciones" asp-action="Index">Asignaciones</a>
+                        </li>
+
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link text-danger" asp-controller="Account" asp-action="Login">
+                                Cerrar sesión
+                            </a>
                         </li>
 
                     </ul>
@@ -34,20 +280,22 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    <div class="container mt-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-center text-muted">
         <div class="container">
-            &copy; 2025 - CrudRazorCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - Sistema Dual - Todos los derechos reservados.
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

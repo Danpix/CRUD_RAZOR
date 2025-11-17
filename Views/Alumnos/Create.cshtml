@@ -21,9 +21,12 @@
 
     <div class="form-group">
         <label asp-for="Carrera"></label>
-        <input asp-for="Carrera" class="form-control" />
+        <select asp-for="Carrera" asp-items="ViewBag.Carreras" class="form-select">
+            <option value="">-- Selecciona una carrera --</option>
+        </select>
         <span asp-validation-for="Carrera" class="text-danger"></span>
     </div>
+
 
     <div class="form-group">
         <label asp-for="Correo"></label>

@@ -1,0 +1,24 @@
+﻿@model CrudRazorCore.Models.Asignacion
+
+@{
+    ViewData["Title"] = "Detalles de Asignación";
+}
+
+<h1>Detalles de Asignación</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Id Asignación</dt>
+    <dd class="col-sm-9">@Model.Id_Asignacion</dd>
+
+    <dt class="col-sm-3">Alumno</dt>
+    <dd class="col-sm-9">@Model.AlumnoNav?.Nombre (@Model.Matricula_Alumno)</dd>
+
+    <dt class="col-sm-3">Empresa</dt>
+    <dd class="col-sm-9">@Model.EmpresaNav?.Nombre_Empresa (@Model.RFC_Empresa)</dd>
+
+    <dt class="col-sm-3">Asesor</dt>
+    <dd class="col-sm-9">@Model.AsesorNav?.Nombre_Asesor</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id_Asignacion" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

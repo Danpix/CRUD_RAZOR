@@ -3,9 +3,8 @@ using CrudRazorCore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+// Cadena de conexión
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
 
 builder.Services.AddDbContext<DualDBContext>(options =>
     options.UseSqlServer(connectionString));
@@ -13,7 +12,6 @@ builder.Services.AddDbContext<DualDBContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
 
 if (!app.Environment.IsDevelopment())
 {
@@ -26,17 +24,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+// ❌ QUITADO: app.UseAuthentication();
+// ❌ QUITADO: app.UseAuthorization();
 
-// Ruta por defecto
+// ❌ QUITADO middleware que siempre redirige al login
+// Ese era el que te bloqueaba todas las rutas
+
+// Ruta por defecto → Login
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
-app.MapControllerRoute(
-    name: "Alumno",
-    pattern: "{controller=Alumno}/{action=Index}/{id?}");
-
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
